@@ -66,6 +66,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ### Links
 * https://laravel.com/docs/8.x/passport
 * https://oauth2.thephpleague.com/terminology/
+* https://stackoverflow.com/a/49342715/1725871
 
 
 ### [Steps taken according to the guide](https://laravel.com/docs/8.x/passport)
@@ -83,3 +84,5 @@ Tips:
 
 * List registered endpoints: `php artisan route:list`
 * Generate oauth client: `php artisan passport:client`
+* Generate password grant: `php artisan passport:client --password`
+

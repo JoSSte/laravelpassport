@@ -29,13 +29,18 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
 
         Passport::tokensCan([
-            'place-orders' => 'Place orders',
-            'check-status' => 'Check order status',
+            'users:read' => 'Get userlist',
+            'users:create' => 'Create user',
         ]);
 
         Passport::setDefaultScope([
-            'check-status',
-            'place-orders',
+            'users:read',
         ]);
+
+        Passport::tokensExpireIn(now()->addHours(4));
+
+        Passport::refreshTokensExpireIn(now()->addYears(1));
+    
+        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
     }
 }
