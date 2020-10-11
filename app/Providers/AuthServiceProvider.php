@@ -27,5 +27,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes();
+
+        Passport::tokensCan([
+            'place-orders' => 'Place orders',
+            'check-status' => 'Check order status',
+        ]);
+
+        Passport::setDefaultScope([
+            'check-status',
+            'place-orders',
+        ]);
     }
 }
