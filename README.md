@@ -60,12 +60,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Links
+
+## This installation
+
+### Links
 * https://laravel.com/docs/8.x/passport
 * https://oauth2.thephpleague.com/terminology/
 
 
-## Steps taken
+### [Steps taken according to the guide](https://laravel.com/docs/8.x/passport)
 
 * `composer create-project laravel/laravel laravelpassport 8.*`
 * `composer require laravel/passport`
+* `.env` updated with database user
+* `php artisan migrate` 
+* `php artisan passport:install --uuids`
+* `App\Models\User.php` updated to include `HasApiTokens`
+* `App\Providers\AuthServiceProvider.php` updated to use passport
+* `config\auth.php` updated with guards
+
+Tips:
+
+* List registered endpoints: `php artisan route:list`
+* Generate oauth client: `php artisan passport:client`
